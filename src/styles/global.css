@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@import '@fontsource/oswald/400.css';
+@import '@fontsource/oswald/500.css';
+@import '@fontsource/oswald/600.css';
+@import '@fontsource/oswald/700.css';
+
+@import '@fontsource/manrope/400.css';
+@import '@fontsource/manrope/500.css';
+@import '@fontsource/manrope/600.css';
+@import '@fontsource/manrope/700.css';
+@import '@fontsource/manrope/800.css';
+
+@theme {
+    --color-mint: #6dffb5;
+    --color-teal: #009b9e;
+    --color-teal-dark: #00696b;
+    --color-ink: #0a2323;
+    --color-ink-soft: #3d5555;
+    --color-paper: #ffffff;
+    --color-paper-soft: #f4fbf9;
+    --color-line: #dceeec;
+
+    --font-sans: 'Manrope', sans-serif;
+    --font-oswald: 'Oswald', sans-serif;
+}
