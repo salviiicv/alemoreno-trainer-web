@@ -2,7 +2,7 @@
 // src/components/Hero.astro
 ---
 
-<header class="relative pt-8 pb-32.5 bg-[radial-gradient(ellipse_75%_60%_at_50%_15%,_rgba(109,255,181,0.22),transparent_68%), linear-gradient(180deg,#ffffff_0%,var(--color-paper-soft)_100%] text-ink overflow-hidden group">
+<header class="relative pt-8 pb-32.5 bg-[radial-gradient(ellipse_75%_60%_at_50%_15%,_rgba(109,255,181,0.22),transparent_68%), linear-gradient(180deg,#ffffff_0%,var(--color-paper-soft)_100%)] text-ink overflow-hidden group">
 
     <div class="absolute top-[-20%] right-[-8%] w-[55%] h-[130%] bg-linear-to-br from-mint to-teal opacity-[0.11] z-0 pointer-events-none animate-[heroPolygonFloat_10s_ease-in-out_infinite_alternate]" style="clip-path: polygon(32% 0, 100% 0, 100% 100%, 0% 100%);"></div>
     <div class="absolute top-[5%] left-[8%] w-105 h-105 rounded-full bg-[radial-gradient(circle,rgba(0,155,158,0.14)_0%,rgba(109,255,181,0.12)_50%,transparent_70%)] blur-[55px] z-0 pointer-events-none animate-[auraOrb_8s_ease-in-out_infinite_alternate]"></div>
@@ -14,10 +14,10 @@
             Ale Moreno - Entrenador Personal
         </span>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-16 items-center w-full">
 
-            <div class="flex flex-col items-center text-center w-full">
-                <h1 class="flex flex-col items-center text-center justify-center font-oswald text-[clamp(32px,4.2vw,64px)] font-bold leading-[0.95] -space-y-0.5 tracking-[-0.01em] text-ink uppercase mb-6.5">
+            <div class="flex flex-col items-center text-center w-full order-2 lg:order-1 relative z-20 -mt-12 lg:mt-0">
+                <h1 class="flex flex-col items-center text-center justify-center font-oswald text-[clamp(48px,6.5vw,72px)] font-bold leading-[0.95] -space-y-0.5 tracking-[-0.01em] text-ink uppercase mb-6.5 w-full">
                     <span class="whitespace-nowrap">Consigue tu</span>
                     <em class="not-italic text-gradient-pro skew-x-[-8deg] drop-shadow-[0_8px_20px_rgba(0,155,158,0.18)] whitespace-nowrap px-2">cambio físico</em>
                     <span class="whitespace-nowrap">con Ale Moreno</span>
@@ -34,7 +34,7 @@
                 </a>
             </div>
 
-            <div class="relative w-full aspect-4/5 lg:h-125 max-w-105 mx-autoa lg:mx-0 lg-ml-auto rounded-4xl overflow-hidden shadow-2xl border-4 border-white/50">
+            <div class="mobile-image-mask relative w-full aspect-4/5 lg:h-125 max-w-105 lg:max-w-105 mx-auto lg:mx-0 lg-ml-auto order-1 lg:order-2 z-10 rounded-4xl lg:overflow-hidden lg:shadow-2xl lg:border-4 lg:border-white/50">
                 <div class="absolute inset-0 bg-paper-soft z-0"></div>
                 <img src="/hero-logo.jpeg" alt="Alejandro Moreno Entrenador Personal" class="w-full h-full object-cover object-top relative z-10 hover:scale-105 transition-transform duration-500" />
             </div>
@@ -73,3 +73,12 @@
 </header>
 
 <div class="divider-pro"></div>
+
+<style>
+    @media (max-width: 1023px) {
+        .mobile-image-mask {
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
+            mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
+        }
+    }
+</style>
