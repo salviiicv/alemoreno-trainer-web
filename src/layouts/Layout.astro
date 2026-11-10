@@ -11,43 +11,56 @@ const { title = "Alejandro Moreno | Entrenador Personal" } = Astro.props;
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="font-sans text-ink bg-paper leading-relaxed overflow-x-hidden min-h-screen flex flex-col">
 		<!-- NAVBAR -->
-		<nav class="sticky top-0 z-50 bg-white/82 backdrop-blur-md border-b border-line transition-all duration-350">
-			<div class="max-w-280 mx-auto px-6 h-18 flex items-center justify-between transition-all duration-350">
-				<a href="/" class="font-oswald font-bold text-[20px] tracking-[0.03em] text-ink">ALEJANDRO<span class="text-teal">.</span>MORENO</a>
+		<nav class="sticky top-0 z-50 bg-white/82 backdrop-blur-md transition-all duration-350">
+			
+			<!-- BARRA SUPERIOR (Mantiene la línea fija abajo) -->
+			<div class="border-b border-line relative z-20">
+				<div class="max-w-[1120px] mx-auto px-6 h-[72px] flex items-center justify-between transition-all duration-350">
+					
+					<!-- Logo animado -->
+					<div class="inline-block hover:scale-110 transition-transform duration-200">
+						<a href="/" class="font-oswald font-bold text-[20px] tracking-[0.03em] text-ink">ALEJANDRO<span class="text-teal">.</span>MORENO</a>
+					</div>
 
-				<!-- DESKTOP MENU -->
-				<div class="hidden md:flex items-center gap-1 bg-paper-soft/85 border border-line py-1 px-1.5 rounded-full shadow-inner">
-					<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/problemas">¿Te pasa esto?</a>
-					<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/metodo">Mi Método</a>
-					<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/experiencias">Experiencias</a>
-					<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/sobre-mi">Conóceme</a>
-					<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/servicios">Especialidades</a>
-					<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/planes">Planes</a>
+					<!-- Menú Desktop -->
+					<div class="hidden nav:flex items-center gap-1 bg-paper-soft/85 border border-line py-1 px-1.5 rounded-full shadow-inner">
+						<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/problemas">¿Te pasa esto?</a>
+						<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/metodo">Mi Método</a>
+						<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/experiencias">Experiencias</a>
+						<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/sobre-mi">Conóceme</a>
+						<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/servicios">Especialidades</a>
+						<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/planes">Planes</a>
+					</div>
+
+					<!-- CTA Desktop (Corregido el corchete y el error tipográfico) -->
+					<a class="hidden nav:inline-block bg-ink text-white px-[20px] py-[10px] rounded-full font-bold text-[14px] uppercase tracking-[0.04em] transition-all duration-250 hover:bg-teal-dark hover:shadow-[0_8px_20px_rgba(0,155,158,0.22)]" href="/contacto">Comienza hoy</a>
+
+					<!-- Botón Menú Móvil -->
+					<button id="nav-toggle" class="nav:hidden flex items-center justify-center w-10 h-10 bg-paper-soft border border-line rounded-lg text-ink cursor-pointer">
+						<svg fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+					</button>
 				</div>
-
-				<!-- CTA DESKTOP -->
-				<a class="hidden md:inline-block bg-ink text-white px-[20px] py-[10px] rounded-full fond-bold text-[14px] uppercase tracking-[0.04em] transition-all duration-250 hover:bg-teal-dark hover:shadow-[0_8px_20px_rgba(0,155,158,0.22)}" href="/contacto">Comienza hoy</a>
-
-				<!-- PHONE MENU BUTTON -->
-				<button id="nav-toggle" class="md:hidden flex items-center justify-center w-10 h-10 bg-paper-soft border border-line rounded-lg text-ink cursor-pointer">
-					<svg fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-				</button>
-
 			</div>
 
-			<div id="mobile-menu" class="absolute top-full left-4 right-4 hidden flex-col text-center bg-white/5 backdrop-blur-lg border border-line rounded-2xl p-3 gap-1 shadow-xl">
-				<a class="py-[11px] px-[16px] rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10 href=/problemas">¿Te pasa esto?</a>
-				<a class="py-[11px] px-[16px] rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10 href=/metodo">Mi Método</a>
-				<a class="py-[11px] px-[16px] rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10 href=/experiencias">Experiencias</a>
-				<a class="py-[11px] px-[16px] rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10 href=/sobre-mi">Conóceme</a>
-				<a class="py-[11px] px-[16px] rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10 href=/servicios">Especialidades</a>
-				<a class="py-[11px] px-[16px] rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10 href=/planes">Planes</a>
+			<!-- MENÚ MÓVIL (Fuera de la caja del borde superior, se desliza por debajo) -->
+			<div id="mobile-menu-wrapper" class="grid grid-rows-[0fr] transition-all duration-300 ease-in-out nav:hidden relative z-10">
+				<div class="overflow-hidden">
+					<!-- Corregidos los enlaces (href fuera de las clases) -->
+					<div class="flex flex-col text-center bg-paper/95 border border-line rounded-[18px] p-3 gap-1.5 shadow-sm mx-4 mt-4 mb-4">
+						<a class="py-[11px] px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10" href="/problemas">¿Te pasa esto?</a>
+						<a class="py-[11px] px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10" href="/metodo">Mi Método</a>
+						<a class="py-[11px] px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10" href="/experiencias">Experiencias</a>
+						<a class="py-[11px] px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10" href="/sobre-mi">Conóceme</a>
+						<a class="py-[11px] px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10" href="/servicios">Especialidades</a>
+						<a class="py-[11px] px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10" href="/planes">Planes</a>
+					</div>
+				</div>
 			</div>
 		</nav>
 
-		<main>
+		<main class="grow">
 			<slot />
 		</main>
 
@@ -58,11 +71,12 @@ const { title = "Alejandro Moreno | Entrenador Personal" } = Astro.props;
 
 		 <script>
 			const toggle = document.getElementById('nav-toggle');
-			const menu = document.getElementById('mobile-menu');
-			if (toggle && menu) {
+			const menuWrapper = document.getElementById('mobile-menu-wrapper');
+
+			if (toggle && menuWrapper) {
 				toggle.addEventListener('click', () => {
-					menu.classList.toggle('hidden');
-					menu.classList.toggle('flex');
+					menuWrapper.classList.toggle('grid-rows-[0fr]');
+					menuWrapper.classList.toggle('grid-rows-[1fr]');
 				});
 			}
 		 </script>
