@@ -5,7 +5,7 @@ import '../styles/global.css';
 const { title = "Alejandro Moreno | Entrenador Personal" } = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="es">	
+<html lang="es" class="scroll-smooth">	
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,30 +17,32 @@ const { title = "Alejandro Moreno | Entrenador Personal" } = Astro.props;
 			
 			<!-- BARRA SUPERIOR (Mantiene la línea fija abajo) -->
 			<div class="border-b border-line relative z-20">
-				<div class="max-w-[1120px] mx-auto px-6 h-[72px] flex items-center justify-between transition-all duration-350">
+				<div class="max-w-280 mx-auto px-6 h-18 flex items-center justify-between transition-all duration-350">
 					
-					<!-- Logo animado -->
-					<div class="inline-block hover:scale-110 transition-transform duration-200">
-						<a href="/" class="font-oswald font-bold text-[20px] tracking-[0.03em] text-ink">ALEJANDRO<span class="text-teal">.</span>MORENO</a>
+					<div class="flex items-center">
+						
+						<button id="nav-toggle" aria-label="Abrir menú" class="nav:hidden flex items-center justify-center w-10 h-10 bg-paper-soft border border-line rounded-lg text-ink cursor-pointer hover:border-teal/50 transition-colors">
+							<svg id="icon-open" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" class="w-5 h-5 block"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                            <svg id="icon-close" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" class="w-5 h-5 hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+						</button>
+						
+						<!-- Logo animado -->
+						<div class="hidden nav:inline-block hover:scale-105 transition-transform duration-200">
+							<a href="/" class="font-oswald font-bold text-[20px] tracking-[0.03em] text-ink">ALEJANDRO<span class="text-teal">.</span>MORENO</a>
+						</div>
 					</div>
 
 					<!-- Menú Desktop -->
 					<div class="hidden nav:flex items-center gap-1 bg-paper-soft/85 border border-line py-1 px-1.5 rounded-full shadow-inner">
-						<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/problemas">¿Te pasa esto?</a>
-						<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/metodo">Mi Método</a>
-						<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/experiencias">Experiencias</a>
-						<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/sobre-mi">Conóceme</a>
-						<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/servicios">Especialidades</a>
-						<a class="px-[15px] py-[7px] rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/planes">Planes</a>
+						<a class="px-3.75 py-1.75 rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="#problemas">¿Te pasa esto?</a>
+						<a class="px-3.75 py-1.75 rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="#metodo">Mi Método</a>
+						<a class="px-3.75 py-1.75 rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="#experiencias">Experiencias</a>
+						<a class="px-3.75 py-1.75 rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="#planes">Planes</a>
+						<a class="px-3.75 py-1.75 rounded-full text-[13px] font-bold text-ink-soft tracking-[0.01em] hover:text-ink hover:bg-teal/10 transition-all duration-250" href="/sobre-mi">Conóceme</a>
 					</div>
 
 					<!-- CTA Desktop (Corregido el corchete y el error tipográfico) -->
-					<a class="hidden nav:inline-block bg-ink text-white px-[20px] py-[10px] rounded-full font-bold text-[14px] uppercase tracking-[0.04em] transition-all duration-250 hover:bg-teal-dark hover:shadow-[0_8px_20px_rgba(0,155,158,0.22)]" href="/contacto">Comienza hoy</a>
-
-					<!-- Botón Menú Móvil -->
-					<button id="nav-toggle" class="nav:hidden flex items-center justify-center w-10 h-10 bg-paper-soft border border-line rounded-lg text-ink cursor-pointer">
-						<svg fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-					</button>
+					<a class="inline-block bg-ink text-white px-5 py-2.5 nav:px-5 nav:py-2.5 rounded-full font-bold text-[13px] nav:text-[14px] uppercase tracking-[0.04em] transition-all duration-250 hover:bg-teal-dark hover:shadow-[0_8px_20px_rgba(0,155,158,0.22)]" href="/contacto">Comienza hoy</a>
 				</div>
 			</div>
 
@@ -48,13 +50,13 @@ const { title = "Alejandro Moreno | Entrenador Personal" } = Astro.props;
 			<div id="mobile-menu-wrapper" class="grid grid-rows-[0fr] transition-all duration-300 ease-in-out nav:hidden relative z-10">
 				<div class="overflow-hidden">
 					<!-- Corregidos los enlaces (href fuera de las clases) -->
-					<div class="flex flex-col text-center bg-paper/95 border border-line rounded-[18px] p-3 gap-1.5 shadow-sm mx-4 mt-4 mb-4">
-						<a class="py-[11px] px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10" href="/problemas">¿Te pasa esto?</a>
-						<a class="py-[11px] px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10" href="/metodo">Mi Método</a>
-						<a class="py-[11px] px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10" href="/experiencias">Experiencias</a>
-						<a class="py-[11px] px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10" href="/sobre-mi">Conóceme</a>
-						<a class="py-[11px] px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10" href="/servicios">Especialidades</a>
-						<a class="py-[11px] px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10" href="/planes">Planes</a>
+					<div class="flex flex-col text-center bg-white/95 backdrop-blur-md border border-line rounded-[20px] p-4 gap-1.5 shadow-xl mx-4 mt-3 mb-4">
+						<a class="py-2.75 px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10 transition-colors" href="/">Inicio</a>
+						<a class="py-2.75 px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10 transition-colors" href="#problemas">¿Te pasa esto?</a>
+						<a class="py-2.75 px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10 transition-colors" href="#metodo">Mi Método</a>
+						<a class="py-2.75 px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10 transition-colors" href="#experiencias">Experiencias</a>
+						<a class="py-2.75 px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10 transition-colors" href="#planes">Planes</a>
+						<a class="py-2.75 px-4 rounded-full text-[14px] font-bold text-ink-soft hover:text-ink hover:bg-teal/10 transition-colors" href="/sobre-mi">Conóceme</a>
 					</div>
 				</div>
 			</div>
@@ -71,14 +73,36 @@ const { title = "Alejandro Moreno | Entrenador Personal" } = Astro.props;
 
 		 <script>
 			const toggle = document.getElementById('nav-toggle');
-			const menuWrapper = document.getElementById('mobile-menu-wrapper');
+            const menuWrapper = document.getElementById('mobile-menu-wrapper');
+            const iconOpen = document.getElementById('icon-open');
+            const iconClose = document.getElementById('icon-close');
 
-			if (toggle && menuWrapper) {
-				toggle.addEventListener('click', () => {
-					menuWrapper.classList.toggle('grid-rows-[0fr]');
-					menuWrapper.classList.toggle('grid-rows-[1fr]');
-				});
-			}
+			if (toggle && menuWrapper && iconOpen && iconClose) {
+                toggle.addEventListener('click', () => {
+                    const isOpen = menuWrapper.classList.contains('grid-rows-[1fr]');
+                    
+                    menuWrapper.classList.toggle('grid-rows-[0fr]', isOpen);
+                    menuWrapper.classList.toggle('grid-rows-[1fr]', !isOpen);
+
+                    iconOpen.classList.toggle('hidden', !isOpen);
+                    iconOpen.classList.toggle('block', isOpen);
+
+                    iconClose.classList.toggle('hidden', isOpen);
+                    iconClose.classList.toggle('block', !isOpen);
+                });
+
+				const menuLinks = menuWrapper.querySelectorAll('a');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuWrapper.classList.add('grid-rows-[0fr]');
+                        menuWrapper.classList.remove('grid-rows-[1fr]');
+                        iconOpen.classList.remove('hidden');
+                        iconOpen.classList.add('block');
+                        iconClose.classList.add('hidden');
+                        iconClose.classList.remove('block');
+                    });
+                });
+            }
 		 </script>
 
 	</body>
